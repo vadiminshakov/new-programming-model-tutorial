@@ -124,20 +124,22 @@ We'll leverage the CLI container to drive these calls.
 Test chaincode with these commands
 ------------------------------
   
-  Create key:
+Create key:
 
       peer chaincode invoke -n mycc -c '{"Args":["Create", "KEY_1", "VALUE_1"]}' -C myc
   
-  Update key:
+Update key:
 
       peer chaincode invoke -n mycc -c '{"Args":["Update", "KEY_1", "VALUE_2"]}' -C myc
   
-  Read key:
+Read key:
 
       peer chaincode query -n mycc -c '{"Args":["Read", "KEY_1"]}' -C myc
   
-  Get metadata:
+Get metadata:
 
       peer chaincode query -n mycc -c '{"Args":["org.hyperledger.fabric:GetMetadata"]}' -C myc
 
-  peer chaincode query -n mycc -c '{"Args":["YetAnotherContract:SayHi"]}' -C myc
+Bad request:
+
+      peer chaincode query -n mycc -c '{"Args":["BadRequest", "BadKey"]}' -C myc
