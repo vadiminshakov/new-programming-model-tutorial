@@ -1,4 +1,4 @@
-module github.com/vadiminshakov/new-programming-model-tutorial
+module github.com/vadiminshakov/new-programming-model-tutorial/chaincode
 
 go 1.14
 
