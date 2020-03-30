@@ -1,4 +1,4 @@
-module github.com/vadiminshakov/habr-contract-api
+module github.com/vadiminshakov/new-programming-model-tutorial
 
 go 1.14
 
