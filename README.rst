@@ -121,7 +121,8 @@ We'll leverage the CLI container to drive these calls.
   peer chaincode instantiate -n mycc -v 0 -c '{"Args":[]}' -C myc
 
 
-###Test chaincode with these commands
+Test chaincode with these commands
+------------------------------
   
   Create key:
 
