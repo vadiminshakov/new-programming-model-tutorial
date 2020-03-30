@@ -1,4 +1,6 @@
-Using dev mode
+Demo repo for article https://habr.com/ru/post/494880/
+
+Start peer in dev mode
 ==============
 
 Normally chaincodes are started and maintained by peer. However in “dev
@@ -119,9 +121,22 @@ We'll leverage the CLI container to drive these calls.
   peer chaincode instantiate -n mycc -v 0 -c '{"Args":[]}' -C myc
 
 
-Test chaincode with these commands:
+### Test chaincode with these commands
   
-  peer chaincode invoke -n mycc -c '{"Args":["Create", "KEY_1", "VALUE_1"]}' -C myc
-  peer chaincode invoke -n mycc -c '{"Args":["Update", "KEY_1", "VALUE_2"]}' -C myc
-  peer chaincode query -n mycc -c '{"Args":["Read", "KEY_1"]}' -C myc
-  peer chaincode query -n mycc -c '{"Args":["org.hyperledger.fabric:GetMetadata"]}' -C myc
+  Create key:
+
+      peer chaincode invoke -n mycc -c '{"Args":["Create", "KEY_1", "VALUE_1"]}' -C myc
+  
+  Update key:
+
+      peer chaincode invoke -n mycc -c '{"Args":["Update", "KEY_1", "VALUE_2"]}' -C myc
+  
+  Read key:
+
+      peer chaincode query -n mycc -c '{"Args":["Read", "KEY_1"]}' -C myc
+  
+  Get metadata:
+
+      peer chaincode query -n mycc -c '{"Args":["org.hyperledger.fabric:GetMetadata"]}' -C myc
+
+  peer chaincode query -n mycc -c '{"Args":["YetAnotherContract:SayHi"]}' -C myc
