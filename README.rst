@@ -1,29 +1,5 @@
 Demo repo for article https://habr.com/ru/post/494880/
 
-Start peer in dev mode
-==============
-
-Normally chaincodes are started and maintained by peer. However in “dev
-mode", chaincode is built and started by the user. This mode is useful
-during chaincode development phase for rapid code/build/run/debug cycle
-turnaround.
-
-We start "dev mode" by leveraging pre-generated orderer and channel artifacts for
-a sample dev network.  As such, the user can immediately jump into the process
-of compiling chaincode and driving calls.
-
-Install Fabric Samples
-----------------------
-
-If you haven't already done so, please `install samples <http://hyperledger-fabric.readthedocs.io/en/latest/install.html>`_.
-
-Navigate to the ``chaincode-docker-devmode`` directory of the ``fabric-samples``
-clone:
-
-.. code:: bash
-
-  cd chaincode-docker-devmode
-
 Download docker images
 ^^^^^^^^^^^^^^^^^^^^^^
 
@@ -31,32 +7,6 @@ We need four docker images in order for "dev mode" to run against the supplied
 docker compose script.  If you installed the ``fabric-samples`` repo clone and
 followed the instructions to `install samples, binaries and docker images <http://hyperledger-fabric.readthedocs.io/en/latest/install.html>`_, then
 you should have the necessary Docker images installed locally.
-
-.. note:: If you choose to manually pull the images then you must retag them as
-          ``latest``.
-
-Issue a ``docker images`` command to reveal your local Docker Registry.  You
-should see something similar to following:
-
-.. code:: bash
-
-  docker images
-  REPOSITORY                     TAG                                  IMAGE ID            CREATED             SIZE
-  hyperledger/fabric-tools       latest                c584c20ac82b        9 days ago         1.42 GB
-  hyperledger/fabric-tools       x86_64-1.1.0-preview  c584c20ac82b        9 days ago         1.42 GB
-  hyperledger/fabric-orderer     latest                2fccc91736df        9 days ago         159 MB
-  hyperledger/fabric-orderer     x86_64-1.1.0-preview  2fccc91736df        9 dyas ago         159 MB
-  hyperledger/fabric-peer        latest                337f3d90b452        9 days ago         165 MB
-  hyperledger/fabric-peer        x86_64-1.1.0-preview  337f3d90b452        9 days ago         165 MB
-  hyperledger/fabric-ccenv       latest                82489d1c11e8        9 days ago         1.35 GB
-  hyperledger/fabric-ccenv       x86_64-1.1.0-preview  82489d1c11e8        9 days ago         1.35 GB
-
-.. note:: If you retrieved the images through the `install samples, binaries and docker images <http://hyperledger-fabric.readthedocs.io/en/latest/install.html>`_,
-          then you will see additional images listed.  However, we are only concerned with
-          these four.
-
-Now open three terminals and navigate to your ``chaincode-docker-devmode``
-directory in each.
 
 Terminal 1 - Start the network
 ------------------------------
@@ -117,7 +67,7 @@ We'll leverage the CLI container to drive these calls.
 
 .. code:: bash
 
-  peer chaincode install -p /opt/gopath/src/chaincodedev/chaincode -n mycc -v 0
+  peer chaincode install -p chaincodedev/chaincode -n mycc -v 0
   peer chaincode instantiate -n mycc -v 0 -c '{"Args":[]}' -C myc
 
 
